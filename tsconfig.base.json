@@ -16,8 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@org/ui-kit": ["libs/ui-kit/src/index.ts"]
-    }
+      "@chat/ui-kit": ["libs/ui-kit/src/index.ts"]
+    },
+    "esModuleInterop": true,
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styles from './app.module.css';
 
-import { Button } from '@org/ui-kit';
+import { Button } from '@chat/ui-kit';
 
 import NxWelcome from './nx-welcome';
 

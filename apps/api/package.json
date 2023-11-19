@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "migrate": "knex migrate:latest",
+    "migrate:dev": "NODE_ENV=development-local knex migrate:latest",
+    "start": "npm run migrate && node main.js"
+  },
+  "nx": {}
+}

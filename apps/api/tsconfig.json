@@ -11,6 +11,8 @@
     }
   ],
   "compilerOptions": {
-    "esModuleInterop": true
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "strictPropertyInitialization": false
   }
 }
