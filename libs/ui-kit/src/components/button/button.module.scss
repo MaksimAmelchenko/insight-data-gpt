@@ -1,0 +1,312 @@
+  @use 'libs/theme/src/lib/styles/mixins';
+  @use 'libs/theme/src/lib/styles/shadow';
+  @use 'libs/theme/src/lib/styles/typography';
+
+.root {
+  @include mixins.resetButton;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:disabled,
+  &[disabled] {
+    cursor: default;
+  }
+
+  &_size_sm {
+    padding: 0.438rem 0.813rem;
+    @include typography.textSMSemibold;
+  }
+
+  &_size_md {
+    padding: 0.563rem 0.938rem;
+    @include typography.textSMSemibold;
+  }
+
+  &_size_lg {
+    padding: 0.563rem 1.063rem;
+    @include typography.textMDSemibold;
+  }
+
+  &_size_xl {
+    padding: 0.688rem 1.188rem;
+    @include typography.textMDSemibold;
+  }
+
+  &_size_2xl {
+    gap: 0.75rem;
+    padding: 0.938rem 1.688rem;
+    @include typography.textLGSemibold;
+  }
+
+  &_variant_primary {
+    &.root_size_sm {
+      padding: 0.5rem 0.875rem;
+    }
+
+    &.root_size_md {
+      padding: 0.625rem 1rem;
+    }
+
+    &.root_size_lg {
+      padding: 0.625rem 1.125rem;
+    }
+
+    &.root_size_xl {
+      padding: 0.75rem 1.25rem;
+    }
+
+    &.root_size_2xl {
+      padding: 1rem 1.75rem;
+    }
+
+    @include shadow.shadowXS;
+    background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+    color: var(--color-white);
+
+    &.root_destructive {
+      background: linear-gradient(135deg, var(--color-error-500) 50%, var(--color-error-600));
+    }
+
+    &:hover:enabled,
+    &:global(:not(.disabled)):hover {
+      background: linear-gradient(135deg, var(--color-primary-600) 50%, var(--color-primary-700));
+
+      &.root_destructive {
+        background: linear-gradient(135deg, var(--color-error-600) 50%, var(--color-error-700));
+      }
+    }
+
+    &:active:enabled,
+    &:focus:enabled,
+    &:global(:not(.disabled)):active,
+    &:global(:not(.disabled)):focus {
+      @include shadow.shadowXSFocused4pxPrimary100;
+
+      &.root_destructive {
+        @include shadow.shadowXSFocused4pxError100;
+      }
+    }
+
+    &:disabled,
+    &[disabled],
+    &:global(.disabled) {
+      background: var(--colors-background-bg-disabled);
+      color: var(--colors-foreground-fg-disabled);
+    }
+  }
+
+  &_variant_secondaryColor {
+    @include shadow.shadowXS;
+    border: 1px solid var(--color-primary-50);
+    background: var(--color-primary-50);
+    color: var(--color-primary-700);
+
+    &.root_destructive {
+      border: 1px solid var(--component-colors-components-buttons-secondary-error-button-secondary-error-border);
+      background: var(--component-colors-components-buttons-secondary-error-button-secondary-error-bg);
+      color: var(--component-colors-components-buttons-secondary-error-button-secondary-error-fg);
+    }
+
+    &:hover:enabled,
+    &:global(:not(.disabled)):hover {
+      border: 1px solid var(--color-primary-100);
+      background: var(--color-primary-100);
+
+      &.root_destructive {
+        border: 1px solid
+          var(--component-colors-components-buttons-secondary-error-button-secondary-error-border-hover, #fda29b);
+        background: var(--component-colors-components-buttons-secondary-error-button-secondary-error-bg-hover, #fef3f2);
+        color: var(--component-colors-components-buttons-secondary-error-button-secondary-error-fg-hover, #912018);
+      }
+    }
+
+    &:active:enabled,
+    &:focus:enabled,
+    &:global(:not(.disabled)):active,
+    &:global(:not(.disabled)):focus {
+      @include shadow.shadowXSFocused4pxPrimary100;
+
+      &.root_destructive {
+        @include shadow.shadowRingErrorShadowXS;
+      }
+    }
+
+    &:disabled,
+    &[disabled],
+    &:global(.disabled) {
+      border: 1px solid var(--colors-border-border-disabled-subtle);
+      background: var(--colors-background-bg-primary);
+      color: var(--colors-foreground-fg-disabled);
+    }
+  }
+
+  &_variant_secondaryGray {
+    @include shadow.shadowXS;
+    border: 1px solid var(--color-gray-300);
+    background: white;
+
+    color: var(--color-gray-700);
+
+    &:hover:enabled,
+    &:global(:not(.disabled)):hover {
+      background: var(--color-gray-50);
+      color: var(--color-gray-800);
+    }
+
+    &:active:enabled,
+    &:focus:enabled,
+    &:global(:not(.disabled)):active,
+    &:global(:not(.disabled)):focus {
+      @include shadow.shadowXSFocused4pxGray100;
+    }
+
+    &:disabled,
+    &[disabled],
+    &:global(.disabled) {
+      border: 1px solid var(--colors-border-border-disabled-subtle);
+      background: var(--colors-background-bg-primary);
+      color: var(--colors-foreground-fg-disabled);
+    }
+  }
+
+  &_variant_tertiaryColor {
+    border: none;
+    color: var(--color-primary-500);
+
+    &.root_destructive {
+      color: var(--component-colors-components-buttons-tertiary-error-button-tertiary-error-fg);
+    }
+
+    &:hover:enabled,
+    &:global(:not(.disabled)):hover {
+      background: var(--color-primary-50);
+      color: var(--color-primary-600);
+
+      &.root_destructive {
+        background: var(--component-colors-components-buttons-tertiary-error-button-tertiary-error-bg-hover);
+        color: var(--component-colors-components-buttons-tertiary-error-button-tertiary-error-fg-hover);
+      }
+    }
+
+    &:active:enabled,
+    &:focus:enabled,
+    &:global(:not(.disabled)):active,
+    &:global(:not(.disabled)):focus {
+      color: var(--color-primary-700);
+      &.root_destructive {
+        color: var(--component-colors-components-buttons-tertiary-error-button-tertiary-error-fg);
+      }
+    }
+
+    &:disabled,
+    &[disabled],
+    &:global(.disabled) {
+      color: var(--colors-foreground-fg-disabled);
+    }
+  }
+
+  &_variant_tertiaryGray {
+    border: none;
+    color: var(--color-gray-500);
+
+    &:hover:enabled,
+    &:global(:not(.disabled)):hover {
+      background: var(--color-gray-50);
+      color: var(--color-gray-600);
+    }
+
+    &:active:enabled,
+    &:focus:enabled,
+    &:global(:not(.disabled)):active,
+    &:global(:not(.disabled)):focus {
+      color: var(--color-gray-500);
+    }
+
+    &:disabled,
+    &[disabled],
+    &:global(.disabled) {
+      color: var(--colors-foreground-fg-disabled);
+    }
+  }
+
+  &_variant_linkColor {
+    border: none;
+    padding: 0;
+    color: var(--color-primary-700);
+    background: none;
+
+    &.root_destructive {
+      color: var(--component-colors-components-buttons-tertiary-error-button-tertiary-error-fg);
+    }
+
+    &:hover,
+    &:global(:not(.disabled)):hover {
+      color: var(--color-primary-800);
+      &.root_destructive {
+        color: var(--component-colors-components-buttons-tertiary-error-button-tertiary-error-fg-hover);
+      }
+    }
+
+    &:active,
+    &:focus,
+    &:global(:not(.disabled)):active,
+    &:global(:not(.disabled)):focus {
+      color: var(--color-primary-700);
+      &.root_destructive {
+        color: var(--component-colors-components-buttons-tertiary-error-button-tertiary-error-fg);
+      }
+    }
+
+    &:disabled,
+    &[disabled],
+    &:global(.disabled) {
+      color: var(--colors-foreground-fg-disabled);
+    }
+  }
+
+  &_variant_linkGray {
+    border: none;
+    padding: 0;
+    color: var(--color-gray-600);
+    background: none;
+
+    &:hover,
+    &:global(:not(.disabled)):hover {
+      color: var(--color-gray-700);
+    }
+
+    &:active,
+    &:focus,
+    &:global(:not(.disabled)):active,
+    &:global(:not(.disabled)):focus {
+      color: var(--color-gray-600);
+    }
+
+    &:disabled,
+    &[disabled],
+    &:global(.disabled) {
+      color: var(--colors-foreground-fg-disabled);
+    }
+  }
+
+  & svg {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  &_size_2xl svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &_fullSize {
+    width: 100%;
+    min-width: auto;
+  }
+}

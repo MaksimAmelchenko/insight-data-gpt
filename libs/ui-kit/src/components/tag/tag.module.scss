@@ -1,0 +1,128 @@
+  @use 'libs/theme/src/lib/styles/mixins';
+  @use 'libs/theme/src/lib/styles/typography';
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0.375rem;
+
+  &_color_primary {
+    border: 1px solid var(--color-primary-200);
+    background-color: var(--color-primary-50);
+    color: var(--color-primary-700);
+
+    .root__closeButton {
+      color: var(--color-primary-500);
+    }
+
+    &.root_outlined {
+      border: 1.5px solid var(--color-primary-600);
+      background: none;
+    }
+  }
+
+  &_color_gray {
+    border: 1px solid var(--color-gray-200);
+    background-color: var(--color-gray-50);
+    color: var(--color-gray-700);
+
+    .root__closeButton {
+      color: var(--color-gray-400);
+    }
+
+    &.root_outlined {
+      border: 1.5px solid var(--color-gray-600);
+      background: none;
+    }
+  }
+
+  &_color_error {
+    border: 1px solid var(--color-error-200);
+    background-color: var(--color-error-50);
+    color: var(--color-error-700);
+
+    .root__closeButton {
+      color: var(--color-error-500);
+    }
+
+    &.root_outlined {
+      border: 1.5px solid var(--color-error-600);
+      background: none;
+    }
+  }
+
+  &_color_success {
+    border: 1px solid var(--color-success-200);
+    background-color: var(--color-success-50);
+    color: var(--color-success-700);
+
+    .root__closeButton {
+      color: var(--color-success-500);
+    }
+
+    &.root_outlined {
+      border: 1.5px solid var(--color-success-600);
+      background: none;
+    }
+  }
+
+
+  &__label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    @include typography.textSMMedium;
+  }
+
+  &__closeButton {
+    @include mixins.resetButton;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gray-400);
+    cursor: pointer;
+    svg {
+      stroke-width: 2px;
+    }
+  }
+
+  &_withCloseButton {
+    .root__label {
+      padding-right: 0;
+    }
+  }
+
+  &_size_md {
+    .root__label {
+      padding: 1px 8px;
+    }
+
+    .root__closeButton {
+      padding: 0.313rem;
+
+      svg {
+        width: 0.75rem;
+        height: 0.75rem;
+      }
+    }
+  }
+
+  &_size_lg {
+    border-radius: 0.5rem;
+
+    .root__label {
+      padding: 3px 9px;
+    }
+
+    .root__closeButton {
+      padding: 0.375rem;
+
+      svg {
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+    }
+  }
+}

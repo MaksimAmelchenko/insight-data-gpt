@@ -1,0 +1,279 @@
+@mixin display2XL {
+  /* Display 2xl/Regular */
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  @apply text-7xl;
+}
+
+@mixin display2XLMedium {
+  /* Display 2xl/Medium */
+  @include display2XL;
+  font-weight: 500;
+}
+
+@mixin display2XLSemibold {
+  /* Display 2xl/Semibold */
+  @include display2XL;
+  font-weight: 600;
+}
+
+@mixin display2XLBold {
+  /* Display 2xl/Bold */
+  @include display2XL;
+  font-weight: 700;
+}
+
+@mixin displayXL {
+  /* Display xl/Regular */
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  @apply text-6xl;
+}
+
+@mixin displayXLMedium {
+  /* Display xl/Medium */
+  @include displayXL;
+  font-weight: 500;
+}
+
+@mixin displayXLSemibold {
+  /* Display xl/Semibold */
+  @include displayXL;
+  font-weight: 600;
+}
+
+@mixin displayXLBold {
+  /* Display xl/Bold */
+  @include displayXL;
+  font-weight: 700;
+}
+
+@mixin displayLG {
+  /* Display lg/Regular */
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  @apply text-5xl;
+}
+
+@mixin displayLGMedium {
+  /* Display lg/Medium */
+  @include displayLG;
+  font-weight: 500;
+}
+
+@mixin displayLGSemibold {
+  /* Display lg/Semibold */
+  @include displayLG;
+  font-weight: 600;
+}
+
+@mixin displayLGBold {
+  /* Display lg/Bold */
+  @include displayLG;
+  font-weight: 700;
+}
+
+@mixin displayMD {
+  /* Display md/Regular */
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  @apply text-4xl;
+}
+
+@mixin displayMDMedium {
+  /* Display md/Medium */
+  @include displayMD;
+  font-weight: 500;
+}
+
+@mixin displayMDSemibold {
+  /* Display md/Semibold */
+  @include displayMD;
+  font-weight: 600;
+}
+
+@mixin displayMDBold {
+  /* Display md/Bold */
+  @include displayMD;
+  font-weight: 700;
+}
+
+@mixin displaySM {
+  /* Display sm/Regular */
+  font-style: normal;
+  font-weight: 400;
+  @apply text-3xl;
+}
+
+@mixin displaySMMedium {
+  /* Display sm/Medium */
+  @include displaySM;
+  font-weight: 500;
+}
+
+@mixin displaySMSemibold {
+  /* Display sm/Semibold */
+  @include displaySM;
+  font-weight: 600;
+}
+
+@mixin displaySMBold {
+  /* Display sm/Bold */
+  @include displaySM;
+  font-weight: 700;
+}
+
+@mixin displayXS {
+  /* Display xs/Regular */
+  font-style: normal;
+  font-weight: 400;
+  @apply text-2xl;
+}
+
+@mixin displayXSMedium {
+  /* Display xs/Medium */
+  @include displayXS;
+  font-weight: 500;
+}
+
+@mixin displayXSSemibold {
+  /* Display xs/Semibold */
+  @include displayXS;
+  font-weight: 600;
+}
+
+@mixin displayXSBold {
+  /* Display xs/Bold */
+  @include displayXS;
+  font-weight: 700;
+}
+
+@mixin textXL {
+  /* Text xl/Regular */
+  font-style: normal;
+  font-weight: 400;
+  @apply text-xl;
+}
+
+@mixin textXLMedium {
+  /* Text xl/Medium */
+  @include textXL;
+  font-weight: 500;
+}
+
+@mixin textXLSemibold {
+  /* Text xl/Semibold */
+  @include textXL;
+  font-weight: 600;
+}
+
+@mixin textXLBold {
+  /* Text xl/Bold */
+  @include textXL;
+  font-weight: 700;
+}
+
+@mixin textLG {
+  /* Text lg/Regular */
+  font-style: normal;
+  font-weight: 400;
+  /* or 156% */
+  @apply text-lg;
+}
+
+@mixin textLGMedium {
+  /* Text lg/Medium */
+  @include textLG;
+  font-weight: 500;
+}
+
+@mixin textLGSemibold {
+  /* Text lg/Semibold */
+  @include textLG;
+  font-weight: 600;
+}
+
+@mixin textLGBold {
+  /* Text lg/Bold */
+  @include textLG;
+  font-weight: 700;
+}
+
+@mixin textMD {
+  /* Text md/Regular */
+  font-style: normal;
+  font-weight: 400;
+  @apply text-base;
+}
+
+@mixin textMDMedium {
+  /* Text md/Medium */
+  @include textMD;
+  font-weight: 500;
+}
+
+@mixin textMDSemibold {
+  /* Text md/Semibold */
+  @include textMD;
+  font-weight: 600;
+}
+
+@mixin textMDBold {
+  /* Text md/Bold */
+  @include textMD;
+  font-weight: 700;
+}
+
+@mixin textSM {
+  /* Text sm/Regular */
+  font-style: normal;
+  font-weight: 400;
+  @apply text-sm;
+}
+
+@mixin textSMMedium {
+  /* Text sm/Medium */
+  @include textSM;
+  font-weight: 500;
+}
+
+@mixin textSMSemibold {
+  /* Text sm/Semibold */
+  @include textSM;
+  font-weight: 600;
+}
+
+@mixin textSMBold {
+  /* Text sm/Bold */
+  @include textSM;
+  font-weight: 700;
+}
+
+@mixin textXS {
+  /* Text xs/Regular */
+  font-style: normal;
+  font-weight: 400;
+  @apply text-xs;
+}
+
+@mixin textXSMedium {
+  /* Text xs/Medium */
+  @include textXS;
+  font-weight: 500;
+}
+
+@mixin textXSSemibold {
+  /* Text xs/Semibold */
+  @include textXS;
+  font-weight: 600;
+}
+
+@mixin textXSBold {
+  /* Text xs/Bold */
+  @include textXS;
+  font-weight: 700;
+}

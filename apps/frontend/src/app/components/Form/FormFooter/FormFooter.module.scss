@@ -1,0 +1,8 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  isolation: isolate;
+  box-shadow: 0 -2px 5px var(--color-gray-100);
+  padding:  1rem  2rem;
+  background-color: var(--color-gray-100);
+}

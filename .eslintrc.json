@@ -1,7 +1,16 @@
 {
   "root": true,
+  "extends": ["plugin:tailwindcss/recommended"],
   "ignorePatterns": ["**/*"],
   "plugins": ["@nx"],
+  "rules": {
+    "tailwindcss/no-custom-classname": [
+      "error",
+      {
+        "whitelist": ["^[A-Z].*$", "svg-full"]
+      }
+    ]
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

@@ -1,0 +1,10 @@
+@use 'libs/theme/src/lib/styles/typography';
+
+.root {
+  text-decoration: none;
+  color: var(--color-primary-600);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

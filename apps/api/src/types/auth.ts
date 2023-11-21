@@ -1,5 +1,5 @@
-export interface ISessionResponse {
-  authorization: string;
+export interface SessionResponse {
+  accessToken: string;
 }
 
-export type TSignInResponse = ISessionResponse;
+export type LogInResponse = SessionResponse;

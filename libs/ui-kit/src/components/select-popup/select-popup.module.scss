@@ -1,0 +1,35 @@
+.dropdown {
+  position: relative;
+}
+
+.backdrop {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.menu {
+  position: absolute;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 2px 5px rgba(43, 55, 79, 0.1);
+  margin-top: 8px;
+  background-color: var(--color-white);
+  z-index: 5;
+}
+
+.dropdownIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 10px;
+  color: var(--color-gray-500);
+
+  &__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}

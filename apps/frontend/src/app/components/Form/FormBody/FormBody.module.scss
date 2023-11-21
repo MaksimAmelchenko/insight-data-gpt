@@ -1,0 +1,20 @@
+//@use 'packages/theme/src/lib/styles/media';
+
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap:  1.5rem;
+  flex: 1;
+  overflow: auto;
+  padding:  1.5rem  2rem;
+
+  //@include media.down(lg) {
+  //  row-gap:  1rem;
+  //}
+
+  //@include media.down(md) {
+  //  row-gap:  1rem;
+  //  padding: 0.5rem  1rem;
+  //}
+}

@@ -11,7 +11,7 @@ export async function createRequestContext(
   return {
     params: {},
     additionalParams: {
-      origin: 'https://app.chat.io',
+      origin: 'https://app.insightdata.ai',
     },
     cookies: {} as any,
     log: log.child(

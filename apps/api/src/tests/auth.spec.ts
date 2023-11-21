@@ -16,7 +16,7 @@ import { validateResponse } from './libs/validate-response';
 let server: http.Server;
 let request: supertest.SuperTest<supertest.Test>;
 
-const username = 'test@chat.io';
+const username = 'test@insightdata.ai';
 const password = 'password';
 
 let ctx: IRequestContext<never, true>;

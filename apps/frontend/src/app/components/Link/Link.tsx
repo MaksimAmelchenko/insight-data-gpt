@@ -1,0 +1,18 @@
+import React from 'react';
+import clsx from 'clsx';
+
+import { Link as LinkBase, LinkProps as LinkBaseProps } from '@org/ui-kit';
+
+import styles from './Link.module.scss';
+
+export interface LinkProps extends LinkBaseProps {}
+
+export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(props, ref) {
+  const { className, children, ...rest } = props;
+  return (
+    // Text font-['Inter'] text-sm font-semibold leading-tight text-violet-700
+    <LinkBase {...rest} ref={ref} className={clsx(styles.root, className)}>
+      {children}
+    </LinkBase>
+  );
+});

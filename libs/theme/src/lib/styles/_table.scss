@@ -1,0 +1,89 @@
+@use '../styles/typography';
+
+.numeric {
+  white-space: nowrap;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+
+  border-collapse: collapse;
+
+  background-color: var(--color-white);
+
+  thead > tr > th {
+    white-space: nowrap;
+  }
+
+  thead > tr > th,
+  thead > tr > th button {
+    @include typography.tableLabel;
+    text-align: left;
+    padding: 4px;
+  }
+
+  tfoot > tr > td {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  td {
+    border-top: 1px solid var(--color-gray-200);
+
+    &.min-width {
+      width: 0.1%;
+    }
+  }
+
+  &-sm {
+    td {
+      padding: 0.4rem 0.8rem;
+    }
+  }
+
+  &-hover > tbody > tr:hover {
+    background: linear-gradient(135deg, var(--color-primary-50) 50%, var(--color-primary-100));
+  }
+
+  &-borderless > tbody > tr > td {
+    border-top: none;
+  }
+
+  tr {
+    height: 3.2rem;
+
+    td {
+      &.checkboxCell {
+        vertical-align: middle;
+        width: 0.1%;
+        & > input {
+          display: block;
+        }
+      }
+
+      &.tickCell {
+        vertical-align: middle;
+        text-align: center;
+
+        & > img {
+          display: block;
+          width: 2rem;
+        }
+      }
+
+      .name {
+        cursor: pointer;
+        color: var(--color-primary-600);
+
+        &:hover {
+          color: var(--color-primary-500);
+        }
+      }
+    }
+
+    &.is_deleting {
+      background-color: var(--color-error-200);
+    }
+  }
+}

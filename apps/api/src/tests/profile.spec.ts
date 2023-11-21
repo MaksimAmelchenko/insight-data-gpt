@@ -7,7 +7,7 @@ import { expect } from '@jest/globals';
 
 import { IProfile, UpdateUserServiceChanges } from '../modules/user/types';
 import { IRequestContext } from '../types/app';
-import { ISessionResponse } from '../types/auth';
+import { SessionResponse } from '../types/auth';
 import { app } from '../main';
 import { auth } from './libs/auth';
 import { authorize } from '../libs/rest-api/authorize';
@@ -23,10 +23,10 @@ import { validateResponse } from './libs/validate-response';
 let server: http.Server;
 let request: supertest.SuperTest<supertest.Test>;
 
-const username = 'test@finex.io';
+const username = 'test@insightdata.ai';
 const password = 'password';
 
-let signInResponse: ISessionResponse;
+let signInResponse: SessionResponse;
 let ctx: IRequestContext<never, true>;
 
 describe('Profile', function (): void {
@@ -45,7 +45,7 @@ describe('Profile', function (): void {
   beforeEach(async () => {
     await createUser(ctx, { username, password });
 
-    signInResponse = <ISessionResponse>await signIn(request, username, password);
+    signInResponse = <SessionResponse>await signIn(request, username, password);
     await authorize(ctx, `Bearer ${signInResponse.authorization}`, '');
   });
 

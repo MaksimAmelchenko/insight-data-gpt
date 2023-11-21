@@ -1,13 +1,15 @@
-import { StrictMode } from 'react';
-import * as ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
-import App from './app/app';
+import { App } from './app/app';
+import { createMainContext } from './app/core/main-context';
+import { initializeMainStore } from './app/core/initialize-stores';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+createMainContext(initializeMainStore());
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <StrictMode>
+  <BrowserRouter>
     <App />
-  </StrictMode>
+  </BrowserRouter>
 );

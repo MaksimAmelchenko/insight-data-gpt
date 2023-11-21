@@ -1,0 +1,40 @@
+  @use 'libs/theme/src/lib/styles/mixins';
+  @use 'libs/theme/src/lib/styles/typography';
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 1rem;
+  border: 1.5px solid var(--color-gray-600);
+
+  &__label {
+    padding: 1px 9px;
+    white-space: nowrap;
+    @include typography.textSMMedium;
+    color: var(--color-gray-700);
+  }
+
+  &__closeButton {
+    @include mixins.resetButton;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gray-600);
+    padding: 0.313rem 0.438rem 0.313rem 0.25rem;
+
+    svg {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+
+    cursor: pointer;
+  }
+
+  &_withCloseButton {
+    .root__label {
+      padding-right: 0;
+    }
+  }
+}
