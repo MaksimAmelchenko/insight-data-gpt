@@ -11,6 +11,7 @@ import { knex } from '../../knex';
 import { log } from '../log';
 import { send, isContent } from './send';
 import { sendError } from './send-error';
+import { resolveAuthorizationHeader } from './resolve-authorization-header';
 // import { sentryErrorHandler } from '../sentry';
 
 export class RestRoute<P, IsAuthorized extends boolean> implements IRestRoute {
@@ -53,13 +54,22 @@ export class RestRoute<P, IsAuthorized extends boolean> implements IRestRoute {
     try {
       if (options.isNeedAuthorization) {
         const { url } = routerContext;
+        // try to get accessToken from url
+        const { searchParams } = new URL(url, 'http://localhost');
+        let accessToken = searchParams.get('accessToken');
+
+        // try to get accessToken from headers
         const authorizationHeader = routerContext.headers['authorization'];
-        if (!authorizationHeader) {
-          throw new UnauthorizedError('Authorization header not present');
+        if (authorizationHeader) {
+          accessToken = resolveAuthorizationHeader(authorizationHeader);
         }
 
-        await authorize(ctx as IRequestContext<unknown, true>, authorizationHeader, url);
-        // in authorize a logger has been extended (added sessionId, userId/serviceId)
+        if (!accessToken) {
+          throw new UnauthorizedError('Access token is not found');
+        }
+
+        await authorize(ctx as IRequestContext<unknown, true>, accessToken, url);
+        // in authorize a logger has been extended (added sessionId, userId)
         routerContext.log = ctx.log;
       }
 

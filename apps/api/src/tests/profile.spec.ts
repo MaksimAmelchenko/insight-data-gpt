@@ -46,7 +46,7 @@ describe('Profile', function (): void {
     await createUser(ctx, { username, password });
 
     signInResponse = <SessionResponse>await signIn(request, username, password);
-    await authorize(ctx, `Bearer ${signInResponse.authorization}`, '');
+    await authorize(ctx, `Bearer ${signInResponse.accessToken}`, '');
   });
 
   afterEach(async () => {
@@ -57,7 +57,7 @@ describe('Profile', function (): void {
     it('should get profile', async () => {
       const response: supertest.Response = await request
         .get(`/v1/profile`)
-        .set(auth(signInResponse.authorization))
+        .set(auth(signInResponse.accessToken))
         .expect('Content-Type', /json/)
         .expect(StatusCodes.OK);
 
@@ -73,7 +73,7 @@ describe('Profile', function (): void {
 
       const response: supertest.Response = await request
         .patch('/v1/profile')
-        .set(auth(signInResponse.authorization))
+        .set(auth(signInResponse.accessToken))
         .send(data)
         .expect('Content-Type', /json/)
         .expect(StatusCodes.OK);
@@ -90,13 +90,13 @@ describe('Profile', function (): void {
     it('should delete current account', async () => {
       await request
         .delete('/v1/profile')
-        .set(auth(signInResponse.authorization))
+        .set(auth(signInResponse.accessToken))
         .send({ password })
         .expect(StatusCodes.NO_CONTENT);
 
       const response: supertest.Response = await request
         .get(`/v1/profile`)
-        .set(auth(signInResponse.authorization))
+        .set(auth(signInResponse.accessToken))
         .expect('Content-Type', /json/)
         .expect(StatusCodes.UNAUTHORIZED);
 

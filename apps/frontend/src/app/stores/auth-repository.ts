@@ -65,11 +65,11 @@ export class AuthRepository extends ManageableStore {
    * Also clears all repositories on successful operation
    */
 
-  signOut = (): Promise<boolean> => {
+  logOut(): Promise<boolean> {
     this.api.logOut().catch(() => {});
     this.clearAuth();
     return Promise.resolve(true);
-  };
+  }
 
   // /**
   //  * Clear all auth data, logical logout for the client

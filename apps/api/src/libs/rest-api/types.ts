@@ -61,4 +61,8 @@ export interface INotModified {
   status: StatusCodes.NOT_MODIFIED;
 }
 
-export type IResponse<T = Record<string, any> | string> = IContent<T> | IAccepted | INoContent | INotModified;
+export interface ByPass {
+  byPass: true;
+}
+
+export type IResponse<T = Record<string, any> | string> = IContent<T> | IAccepted | INoContent | INotModified | ByPass;

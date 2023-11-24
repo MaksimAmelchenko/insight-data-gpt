@@ -1,8 +1,11 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useMatch } from 'react-router-dom';
 
+import { AuthRepository } from '../../stores/auth-repository';
+import { ConversationLazy } from '../../pages/Conversation/ConversationLazy';
 import { ConversationNavItem } from './ConversationNavItem/ConversationNavItem';
+import { ConversationRepository } from '../../stores/conversation-repository';
 import { HomeLazy } from '../../pages/Home/HomeLazy';
 import { Image, IconButton, LifeBuoy01Icon, LogOut01Icon, Settings02Icon } from '@org/ui-kit';
 import { Loader } from '../../components/Loader/Loader';
@@ -14,7 +17,17 @@ import { useStore } from '../../core/hooks/use-store';
 import { ReactComponent as LogoIcon } from '../../icons/logo.svg';
 
 export const MainLayout = observer(() => {
+  const authRepository = useStore(AuthRepository);
+  const conversationRepository = useStore(ConversationRepository);
   const profileRepository = useStore(ProfileRepository);
+
+  const match = useMatch('/conversations/:conversationId');
+  const { conversationId } = match?.params ?? {};
+
+  useEffect(() => {
+    conversationRepository.fetchConversations();
+    conversationRepository.subscribeToMessages();
+  }, [conversationRepository]);
 
   const { profile } = profileRepository;
 
@@ -22,18 +35,25 @@ export const MainLayout = observer(() => {
     return <Loader />;
   }
 
+  const { conversations } = conversationRepository;
+
   return (
     <div className="flex">
       <aside className="SidebarNavigation flex w-72 items-start justify-start border-r border-gray-200 bg-white">
-        <div className="Content flex h-full flex-col">
+        <div className="Content flex h-full w-full flex-col">
           <div className="Header w-full px-4 pb-4 pt-2">
             <NavItem href="/" icon={<LogoIcon />} label="InsightDataGPT" />
           </div>
 
-          <div className="Navigation flex flex-1 flex-col gap-1  px-4">
-            <ConversationNavItem href={'/1'} title={'Conversation 1'} />
-            <ConversationNavItem href={'/3'} title={'Conversation 2'} />
-            <ConversationNavItem href={'/3'} title={'Conversation 3'} />
+          <div className="Navigation flex flex-1 flex-col gap-1 px-4">
+            {conversations.map(conversation => (
+              <ConversationNavItem
+                key={conversation.id}
+                active={conversation.id === conversationId}
+                href={`/conversations/${conversation.id}`}
+                title={conversation.title}
+              />
+            ))}
           </div>
 
           <div className="Footer flex flex-col items-start justify-start gap-6 px-4 pb-8">
@@ -57,7 +77,11 @@ export const MainLayout = observer(() => {
                 </div>
               </div>
 
-              <IconButton>
+              <IconButton
+                onClick={() => {
+                  authRepository.logOut();
+                }}
+              >
                 <LogOut01Icon />
               </IconButton>
             </div>
@@ -68,6 +92,7 @@ export const MainLayout = observer(() => {
       <div className="h-screen grow overflow-hidden bg-gray-50">
         <Suspense fallback={<Loader />}>
           <Routes>
+            <Route path="/conversations/:conversationId" element={<ConversationLazy />} />
             <Route path="/" element={<HomeLazy />} />
             {/*<Route path="/profile" element={<ProfileLazy />} />*/}
 

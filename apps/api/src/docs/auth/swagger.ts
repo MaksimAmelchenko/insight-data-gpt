@@ -1,7 +1,6 @@
 import { OpenAPIV3_1 } from 'openapi-types';
 
 import { header } from '../header';
-import { sessionSchema } from '../../api/auth/sign-in/response.session.schema';
 import { signInParamsSchema } from '../../api/auth/sign-in/params.schema';
 import { signInResponseSchema } from '../../api/auth/sign-in/response.schema';
 import { signOutParamsSchema } from '../../api/auth/sign-out/params.schema';
@@ -68,9 +67,7 @@ const auth: OpenAPIV3_1.Document = {
     } as OpenAPIV3_1.PathsObject,
   },
   components: {
-    schemas: {
-      session: sessionSchema,
-    },
+    schemas: {},
     parameters: {},
   },
 };

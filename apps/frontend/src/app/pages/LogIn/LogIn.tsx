@@ -11,6 +11,8 @@ import { Form, FormButton, InputField, FormLayout } from '../../components/Form'
 import { analytics } from '../../lib/analytics';
 import { useStore } from '../../core/hooks/use-store';
 
+import { ReactComponent as LogoIcon } from './assets/logo.svg';
+
 interface LogInFormValues {
   username: string;
   password: string;
@@ -75,11 +77,8 @@ export function LogIn(): React.ReactElement {
       <div className="container flex items-center justify-center">
         <div className="Content flex w-full max-w-sm flex-col items-center justify-start gap-8">
           <div className="Header flex h-36 flex-col items-center justify-start gap-6 self-stretch">
-            <div className="Logomark inline-flex items-start justify-start shadow">
-              <div className="Content relative h-12 w-12 rounded-xl border border-gray-300 bg-gradient-to-b from-white to-gray-300">
-                <div className="Grid absolute left-0 top-0 h-12 w-12" />
-                <div className="Dot absolute left-[12px] top-[12px] h-6 w-6 rounded-full bg-gradient-to-tr from-violet-900 to-violet-700 shadow" />
-              </div>
+            <div className="h-16 w-16">
+              <LogoIcon className="h-full w-full" />
             </div>
             <div className="TextAndSupportingText flex h-20 flex-col items-start justify-start gap-3 self-stretch">
               <div className="Text self-stretch text-center text-3xl font-semibold text-gray-900">Welcome back</div>

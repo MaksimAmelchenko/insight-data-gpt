@@ -3,7 +3,6 @@ import { IRequestContext } from '../../types/app';
 import { Session } from '../../services/session/model/session';
 import { SessionService } from '../../services/session';
 import { UnauthorizedError } from '../errors';
-import { resolveAuthorizationHeader } from './resolve-authorization-header';
 import { signOutRouteOptions } from '../../api/auth/sign-out';
 import { userService } from '../../modules/user/user.service';
 
@@ -11,14 +10,13 @@ const notUpdateAccessTimeRoutes: string[] = [signOutRouteOptions.uri];
 
 export async function authorize(
   ctx: IRequestContext<unknown, true>,
-  authorizationHeader: string,
+  accessToken: string,
   url: string
 ): Promise<void> {
-  const token = resolveAuthorizationHeader(authorizationHeader);
 
   let sessionId: string;
   try {
-    const payload: IJwtPayload = SessionService.verifyJwt(token);
+    const payload: IJwtPayload = SessionService.verifyJwt(accessToken);
     sessionId = payload.sessionId;
   } catch (err) {
     throw new UnauthorizedError({ code: 'jsonWebTokenError' });

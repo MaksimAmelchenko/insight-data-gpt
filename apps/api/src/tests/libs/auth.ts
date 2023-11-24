@@ -1,1 +1,3 @@
-export const auth: (token: string) => { Authorization: string } = token => ({ Authorization: `Bearer ${token}` });
+export const auth: (accessToken: string) => { Authorization: string } = accessToken => ({
+  Authorization: `Bearer ${accessToken}`,
+});

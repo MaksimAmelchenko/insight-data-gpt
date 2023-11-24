@@ -1,3 +1,5 @@
+export * from './lib/utils';
+
 export * from './components/badge/badge';
 export * from './components/base-checkbox/base-checkbox';
 export * from './components/button/button';

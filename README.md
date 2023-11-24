@@ -1,4 +1,14 @@
-# Org
+# Insight Data GPT
+
+### Frontend for Insight Data GPT
+
+React, MobX, Typescript, TailwindCSS, Custom components ( + [shadcn/ui](https://ui.shadcn.com/)), [Untitled UI](https://www.untitledui.com/)
+
+### Backend for Insight Data GPT
+
+NodeJS, KoaJS, Typescript, Knex, Postgres, REST API, Swagger + OpenAPI
+
+### Mono-repo
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
@@ -53,12 +63,6 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Set up remote caching](https://nx.dev/core-features/share-your-cache)
 - [Set up task distribution across multiple machines](https://nx.dev/nx-cloud/features/distribute-task-execution)
 - [Learn more how to setup CI](https://nx.dev/recipes/ci)
-
-## Connect with us!
-
-- [Join the community](https://nx.dev/community)
-- [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
-- [Follow us on Twitter](https://twitter.com/nxdevtools)
 
 ## Generate a shadcn-ui component
 

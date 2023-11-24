@@ -1,18 +1,16 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-
 import Koa from 'koa';
-import { Model } from 'objection';
 import helmet from 'koa-helmet';
 import mount from 'koa-mount';
 import serve from 'koa-static';
+import { Model } from 'objection';
 
 import config from './libs/config';
+import { authApi } from './api/auth';
+import { conversationApi } from './api/conversation';
+import { healthCheck } from './api/health-check';
 import { knex } from './knex';
 import { log, logMiddleware, requestLogMiddleware } from './libs/log';
-// import { sentryErrorHandler } from './libs/sentry';
-
-import { authApi } from './api/auth';
-import { healthCheck } from './api/health-check';
 import { profileApi } from './api/profile';
 
 const app: Koa = new Koa();
@@ -33,6 +31,7 @@ app.use(require('./middlewares/body-parser').default);
 
 app.use(authApi);
 app.use(profileApi);
+app.use(conversationApi);
 
 // serve docs
 app.use(async (ctx, next) => {

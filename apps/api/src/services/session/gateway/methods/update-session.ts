@@ -11,7 +11,7 @@ export async function updateSession(
 ): Promise<Session> {
   ctx.log.trace({ changes }, 'try to update session');
 
-  return Session.query(ctx.trx).patchAndFetchById(sessionId, {
+  return Session.query().patchAndFetchById(sessionId, {
     ...changes,
     requestsCount: raw('requests_count + 1'),
   });

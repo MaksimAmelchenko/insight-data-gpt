@@ -3,7 +3,7 @@ import { OpenAPIV3_1 } from 'openapi-types';
 export const sessionSchema: OpenAPIV3_1.SchemaObject = {
   type: 'object',
   properties: {
-    authorization: {
+    accessToken: {
       type: 'string',
       description: 'Bearer Token',
       example:
@@ -11,5 +11,5 @@ export const sessionSchema: OpenAPIV3_1.SchemaObject = {
     },
   },
   additionalProperties: false,
-  required: ['authorization'],
+  required: ['accessToken'],
 };

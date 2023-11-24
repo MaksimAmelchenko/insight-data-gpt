@@ -4,7 +4,7 @@ import { updateProfileParamsSchema } from './params.schema';
 import { updateProfileResponseSchema } from './response.schema';
 
 export const updateProfile: RestRouteOptions = {
-  methods: [RestMethod.Post, RestMethod.Patch],
+  method: RestMethod.Patch,
   uri: '/v1/profile',
   handler,
   schemas: {
