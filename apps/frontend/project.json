@@ -15,7 +15,15 @@
         "baseHref": "/",
         "main": "apps/frontend/src/main.tsx",
         "tsConfig": "apps/frontend/tsconfig.app.json",
-        "assets": ["apps/frontend/src/favicon.png", "apps/frontend/src/assets"],
+        "assets": [
+          "apps/frontend/src/favicon.png",
+          "apps/frontend/src/assets",
+          {
+            "glob": "**/*",
+            "input": "apps/frontend/public",
+            "output": "/"
+          }
+        ],
         "styles": ["apps/frontend/src/styles.scss"],
         "scripts": [],
         "isolatedConfig": true,
