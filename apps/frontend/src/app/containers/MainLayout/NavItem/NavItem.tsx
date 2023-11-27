@@ -16,7 +16,7 @@ export function NavItem({ icon, label, href, onClick }: NavItemProps): React.Rea
         href={href}
       >
         <div className="Content flex h-6 shrink grow basis-0 items-center justify-start gap-3">
-          <div className="svg-full relative h-6 w-6">{icon}</div>
+          <div className="h-6 w-6">{icon}</div>
           <div className="Text text-base font-semibold leading-normal text-slate-700">{label}</div>
         </div>
       </Link>
@@ -29,7 +29,7 @@ export function NavItem({ icon, label, href, onClick }: NavItemProps): React.Rea
       onClick={onClick}
     >
       <div className="Content flex h-6 shrink grow basis-0 items-center justify-start gap-3">
-        <div className="svg-full relative h-6 w-6">{icon}</div>
+        <div className="h-6 w-6">{icon}</div>
         <div className="Text font-['Inter'] text-base font-semibold leading-normal text-slate-700">{label}</div>
       </div>
     </div>

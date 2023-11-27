@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ConversationRepository } from '../../stores/conversation-repository';
-import { Prompt } from '../Conversation/Prompt/Prompt';
+import { Prompt } from '../../components/Prompt/Prompt';
 import { ReactComponent as LogoIcon } from '../../icons/logo.svg';
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '../../core/hooks/use-store';
@@ -25,7 +25,9 @@ function Home(): React.ReactElement {
           </div>
           <div className="mb-5 text-2xl font-medium">How can I help you today?</div>
         </div>
-        <Prompt onSubmit={handleStartConversation} />
+        <div className="container w-full lg:max-w-[40rem] xl:max-w-[48rem]">
+          <Prompt onSubmit={handleStartConversation} />
+        </div>
       </div>
     </div>
   );

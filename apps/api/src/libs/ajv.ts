@@ -6,6 +6,7 @@ const ajv: Ajv = new Ajv({
   allErrors: true,
   coerceTypes: true,
   $data: true,
+  allowUnionTypes: true,
   // useDefaults: true,
 });
 

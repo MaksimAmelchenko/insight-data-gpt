@@ -1,3 +1,4 @@
+import { AppStore } from '../stores/app-store';
 import { AuthApi } from '../stores/api/auth-api';
 import { AuthRepository } from '../stores/auth-repository';
 import { CommonStorageStore } from '../stores/common-storage-store';
@@ -17,6 +18,7 @@ export function initializeMainStore(): MainStore {
   const mainStore = new MainStore();
   new CommonStorageStore(mainStore);
   new SessionStorageStore(mainStore);
+  new AppStore(mainStore);
 
   new ProfileRepository(mainStore, new ProfileApi(mainStore));
   new AuthRepository(mainStore, new AuthApi(mainStore));

@@ -20,7 +20,7 @@ export class ProfileApi extends ApiRepository implements IProfileApi {
 
   updateProfile(changes: UpdateProfileChanges): Promise<UpdateProfileResponse> {
     return this.fetch<UpdateProfileResponse>({
-      method: 'POST',
+      method: 'PATCH',
       url: `/v1/profile`,
       body: changes,
     });

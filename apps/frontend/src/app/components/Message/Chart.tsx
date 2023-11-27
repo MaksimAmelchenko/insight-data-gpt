@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { ECharts, EChartsOption } from '../../../components/ECharts/ECharts';
+import { ECharts, EChartsOption } from '../ECharts/ECharts';
 import { cn } from '@org/ui-kit';
-import { Loader } from '../../../components/Loader/Loader';
+import { Loader } from '../Loader/Loader';
 
 export interface TextProps {
   children: string;

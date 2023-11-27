@@ -7,7 +7,7 @@
     "tailwindcss/no-custom-classname": [
       "error",
       {
-        "whitelist": ["^[A-Z].*$", "svg-full"]
+        "whitelist": ["^[A-Z].*$", "svg-full", "pb-safe-bottom"]
       }
     ]
   },

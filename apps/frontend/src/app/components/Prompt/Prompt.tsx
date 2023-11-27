@@ -18,7 +18,7 @@ export function Prompt({ onSubmit }: PromptProps): React.ReactElement {
   };
 
   return (
-    <div className="container flex shrink flex-col items-center justify-center md:max-w-3xl lg:max-w-[50rem] xl:max-w-[60rem]">
+    <div>
       <TextArea
         name="message"
         value={message}
@@ -28,6 +28,7 @@ export function Prompt({ onSubmit }: PromptProps): React.ReactElement {
         onChange={event => {
           setMessage(event.currentTarget.value);
         }}
+        className="w-full"
         onKeyDown={event => {
           if (event.key === 'Enter' && !event.shiftKey) {
             event.preventDefault();
@@ -35,8 +36,8 @@ export function Prompt({ onSubmit }: PromptProps): React.ReactElement {
           }
         }}
       />
-      <div className="relative p-2 text-center text-xs text-gray-600 dark:text-gray-300 md:px-[60px]">
-        <span>InsightDataGPT can make mistakes. Consider checking important information.</span>
+      <div className="py-2 text-center text-[10px] text-gray-600 sm:text-xs">
+        InsightDataGPT can make mistakes. Consider checking important information.
       </div>
     </div>
   );

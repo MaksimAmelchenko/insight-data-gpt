@@ -23,7 +23,7 @@ export function LogIn(): React.ReactElement {
   const navigate = useNavigate();
   const location = useLocation();
   const authStore = useStore(AuthRepository);
-  const username = useStore(CommonStorageStore).get('username') ?? '';
+  const username = useStore(CommonStorageStore).get('username') ?? 'admin@chat.io';
   const { enqueueSnackbar } = useSnackbar();
 
   const { pathname: from = '/' } = location.state?.from || {};

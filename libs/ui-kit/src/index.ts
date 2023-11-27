@@ -23,3 +23,5 @@ export * from './components/tag/tag';
 export * from './components/target/target';
 export * from './components/text-area/text-area';
 export * from './components/types';
+
+export * from './shadcn/ui/sheet';

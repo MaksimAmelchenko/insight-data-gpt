@@ -42,7 +42,7 @@ export const MainLayout = observer(() => {
       <aside className="SidebarNavigation flex w-72 items-start justify-start border-r border-gray-200 bg-white">
         <div className="Content flex h-full w-full flex-col">
           <div className="Header w-full px-4 pb-4 pt-2">
-            <NavItem href="/" icon={<LogoIcon />} label="InsightDataGPT" />
+            <NavItem href="/" icon={<LogoIcon className="h-full w-full" />} label="InsightDataGPT" />
           </div>
 
           <div className="Navigation flex flex-1 flex-col gap-1 px-4">
@@ -58,8 +58,8 @@ export const MainLayout = observer(() => {
 
           <div className="Footer flex flex-col items-start justify-start gap-6 px-4 pb-8">
             <div className="Navigation flex h-20 flex-col items-start justify-start gap-1 self-stretch">
-              <NavItem href="/support" icon={<LifeBuoy01Icon />} label="Support" />
-              <NavItem icon={<Settings02Icon />} label="Settings" />
+              <NavItem href="/support" icon={<LifeBuoy01Icon className="h-full w-full" />} label="Support" />
+              <NavItem icon={<Settings02Icon className="h-full w-full" />} label="Settings" />
             </div>
 
             <NavFeaturedCard />
@@ -73,7 +73,7 @@ export const MainLayout = observer(() => {
 
                 <div className="TextAndSupportingText inline-flex flex-col items-start justify-start">
                   <div className="Text text-sm font-semibold leading-tight text-slate-700">John Doe</div>
-                  <div className="SupportingText  text-sm font-normal leading-tight text-slate-600">john.doe@di.ai</div>
+                  <div className="SupportingText text-sm font-normal leading-tight text-slate-600">john.doe@di.ai</div>
                 </div>
               </div>
 

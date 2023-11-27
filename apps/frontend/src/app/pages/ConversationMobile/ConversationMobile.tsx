@@ -3,12 +3,13 @@ import { Navigate, useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { reaction } from 'mobx';
 
+import { AppBar } from '../../components/AppBar/AppBar';
 import { ConversationRepository } from '../../stores/conversation-repository';
 import { Message } from '../../components/Message/Message';
 import { Prompt } from '../../components/Prompt/Prompt';
 import { useStore } from '../../core/hooks/use-store';
 
-const Conversation = observer(() => {
+const ConversationMobile = observer(() => {
   const conversationRepository = useStore(ConversationRepository);
   const { conversationId } = useParams<'conversationId'>();
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -67,18 +68,22 @@ const Conversation = observer(() => {
   const { messages } = conversation;
 
   return (
-    <div className="relative flex h-full w-full flex-col gap-4 overflow-hidden">
-      <div className="flex flex-1 flex-col overflow-auto" ref={containerRef}>
-        {messages.map(message => {
-          return <Message message={message} className="mx-auto lg:max-w-[40rem] xl:max-w-[64rem]" key={message.id} />;
-        })}
-      </div>
+    <div className="pb-safe-bottom flex h-full flex-col">
+      <AppBar title={conversation.title} />
 
-      <div className="container w-full lg:max-w-[40rem] xl:max-w-[64rem]">
+      <main className="relative flex w-full flex-1 flex-col gap-4 overflow-hidden">
+        <div className="flex flex-col overflow-auto " ref={containerRef}>
+          {messages.map(message => {
+            return <Message message={message} className="m-auto lg:max-w-[40rem] xl:max-w-[64rem]" key={message.id} />;
+          })}
+        </div>
+      </main>
+
+      <div className="container w-full px-4 lg:max-w-[40rem] xl:max-w-[64rem]">
         <Prompt onSubmit={handleAddMessage} />
       </div>
     </div>
   );
 });
 
-export default Conversation;
+export default ConversationMobile;

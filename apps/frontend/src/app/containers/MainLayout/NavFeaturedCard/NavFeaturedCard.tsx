@@ -23,8 +23,8 @@ export function NavFeaturedCard(): React.ReactElement | null {
           className="ButtonCloseX absolute right-[-6px] top-[-14px] flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg p-2"
           onClick={handleNavFeaturedCardClose}
         >
-          <div className="XClose svg-full relative h-5 w-5">
-            <XCloseIcon />
+          <div className="XClose relative h-5 w-5">
+            <XCloseIcon className="h-full w-full" />
           </div>
         </div>
 

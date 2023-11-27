@@ -32,6 +32,7 @@ export { ReactComponent as Ling01Icon, default as ling01Svg } from './link-01.sv
 export { ReactComponent as LingBroken01Icon, default as lingBroken01Svg } from './link-broken-01.svg';
 export { ReactComponent as LogOut01Icon, default as logOut01Svg } from './log-out-01.svg';
 export { ReactComponent as MagicWand02Icon, default as magicWand02Svg } from './magic-wand-02.svg';
+export { ReactComponent as Menu03Icon, default as menu03Svg } from './menu-03.svg';
 export {
   ReactComponent as MessageQuestionSquareIcon,
   default as messageQuestionSquareSvg,

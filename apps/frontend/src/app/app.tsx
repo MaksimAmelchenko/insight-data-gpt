@@ -7,6 +7,7 @@ import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
 import { Loader } from './components/Loader/Loader';
 import { LogInLazy } from './pages/LogIn/LogInLazy';
 import { MainLayoutLazy } from './containers/MainLayout/MainLayoutLazy';
+import { MainLayoutMobileLazy } from './containers/MainLayoutMobile/MainLayoutMobileLazy';
 import { RequireAuth } from './components/RequireAuth/RequireAuth';
 import { SnackbarUtilsConfigurator } from './components/SnackbarUtilsConfigurator/SnackbarUtilsConfigurator';
 import { useDeviceSize } from './lib/use-device-size';
@@ -29,15 +30,7 @@ export const App = observer(() => {
             <Route path="/log-in" element={<LogInLazy />} />
             <Route
               path="*"
-              element={
-                <RequireAuth>
-                  {isSmall ? (
-                    <div className="grid h-full w-full place-items-center ">Mobile not implemented</div>
-                  ) : (
-                    <MainLayoutLazy />
-                  )}
-                </RequireAuth>
-              }
+              element={<RequireAuth>{isSmall ? <MainLayoutMobileLazy /> : <MainLayoutLazy />}</RequireAuth>}
             />
           </Routes>
         </ErrorBoundary>
